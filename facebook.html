@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+   <style type="text/css">
+
+      body{
+        padding: 3%;
+        cursor: pointer;
+         }
+
+      .card {
+        background-color: #ffffff;
+        border-radius: 2px;
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
+        display: block;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        
+      }
+
+      .card-inner {
+        margin: 10px 10px;
+        min-width: 0;
+        position: relative;
+      }
+      .card-header .card-inner {
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        text-decoration-color: green;
+      }
+
+      .no-flexbox .card-header-side + .card-inner, .no-flexbox .tile-side + .card-inner {
+        overflow: hidden;
+      }
+
+      .card-main {
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        min-width: 0;
+      }
+
+   </style>
+
+</head>
+
+<body>
+
+<div class="container">
+  
+    <div class="row">
+    
+       <p> Hi this is Chinmaya - <a id="facebookBtn" href="#">Click here to get my facebook info</a></p>
+      </div>
+      <div>
+      <ul>
+      <li>  Profile - <span id="myProfileId"></span> </li>
+     <li> Name  - <span id="myName"></span> </li>
+    <li>Email - <span id="myEmail"></span></li>
+    <li>Hometown - <span id="myHometown"></span></li>
+    <li>Education- <span id="myEducation"></span></li>
+    <li>Current location - <span id="myLocation"></span></li>
+</div>
+<div id='post-result'></div>
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="jquery.min.js"></script>
+<script type="text/javascript" src="j.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.post("result.php",
+            $('#searchForm').serialize(),
+            function(data,status){
+                //alert("Data: " + data + "\nStatus: " + status);
+                $('#post-result').append(data);
+            }
+        );
+    });
+});
+</script>
+
+
+</body>
+
+
+</html>

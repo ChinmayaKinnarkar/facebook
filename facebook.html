@@ -90,19 +90,6 @@
 <script type="text/javascript" src="j.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $.post("result.php",
-            $('#searchForm').serialize(),
-            function(data,status){
-                //alert("Data: " + data + "\nStatus: " + status);
-                $('#post-result').append(data);
-            }
-        );
-    });
-});
-</script>
 
 
 </body>
